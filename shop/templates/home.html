@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero"><div><small>WELCOME TO SHOPEASE</small>
+<h1>Find products<br>you'll love.</h1><p>Everyday essentials at simple prices.</p>
+<a class="btn" href="#products">Shop now</a></div><div class="circle">S</div></section>
+<h2 id="products">Our products</h2><div class="grid">
+{% for p in products %}<article class="card"><a href="/product/{{ p.id }}/">
+<div class="photo">{{ p.name|first|upper }}</div></a><div class="pad">
+<h3><a href="/product/{{ p.id }}/">{{ p.name }}</a></h3>
+<p>{{ p.description }}</p><b>₹{{ p.price }}</b>
+<form method="post" action="/add/{{ p.id }}/">{% csrf_token %}
+<button class="btn">Add to cart</button></form></div></article>
+{% empty %}<p>No products available.</p>{% endfor %}</div>
+{% endblock %}

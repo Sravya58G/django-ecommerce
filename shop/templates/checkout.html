@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block content %}<div class="panel"><h1>Checkout</h1>
+{% for p, qty in products %}<p>{{ p.name }} × {{ qty }}</p>{% endfor %}
+<h2>Total: ₹{{ total }}</h2><p>Demo checkout: no real payment is collected.</p>
+<form method="post">{% csrf_token %}<button class="btn">Place order</button></form></div>{% endblock %}

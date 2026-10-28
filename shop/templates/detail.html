@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}
+<div class="detail"><div class="photo big">{{ p.name|first|upper }}</div><div>
+<small>PRODUCT DETAILS</small><h1>{{ p.name }}</h1><h2>₹{{ p.price }}</h2>
+<p>{{ p.description }}</p><p>Stock: {{ p.stock }}</p>
+<form method="post" action="/add/{{ p.id }}/">{% csrf_token %}<button class="btn">Add to cart</button></form>
+</div></div>{% endblock %}

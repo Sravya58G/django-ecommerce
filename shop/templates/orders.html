@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block content %}<h1>My orders</h1>
+{% for o in orders %}<div class="panel"><h3>Order #{{ o.id }}</h3>
+<p>{{ o.items }}</p><b>Total: ₹{{ o.total }}</b><p>{{ o.created|date:"d M Y, H:i" }}</p></div>
+{% empty %}<p>No orders yet.</p>{% endfor %}{% endblock %}

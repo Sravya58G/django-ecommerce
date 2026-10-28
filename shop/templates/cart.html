@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}<h1>Your cart</h1>
+{% for x in data %}<div class="cartrow"><div><b>{{ x.p.name }}</b><p>₹{{ x.p.price }} × {{ x.qty }}</p>
+<form method="post" action="/remove/{{ x.p.id }}/">{% csrf_token %}<button class="remove">Remove</button></form></div><b>₹{{ x.subtotal }}</b></div>
+{% empty %}<p>Your cart is empty. <a href="/">Shop now</a></p>{% endfor %}
+{% if data %}<div class="summary"><h2>Total: ₹{{ total }}</h2><a class="btn" href="/checkout/">Checkout</a></div>{% endif %}
+{% endblock %}
